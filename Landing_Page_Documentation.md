@@ -283,8 +283,9 @@ export const signUpUser = async (email: string, password: string, role: string) 
 - **Steps**: Lint, test, build, deploy to Vercel/Supabase.
 
 ### Environment Configurations
-- **Dev/Staging/Prod**: Separate Supabase projects; env vars for API keys.
-- **Secrets Management**: GitHub Secrets for sensitive data.
+- **Production**: Full Supabase deployment with real-time data, monitoring, and auto-scaling.
+- **Pre-Production**: Environment for final validation with production-like data.
+- **Secrets Management**: Secure handling of API keys and sensitive data.
 
 ### Scalability Considerations
 - **CDN**: Vercel/Netlify for global distribution.

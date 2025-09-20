@@ -324,8 +324,9 @@ export const calculateKPIs = async () => {
 - **Steps**: Lint, test, build, deploy.
 
 ### Environment Configurations
-- **Dev/Staging/Prod**: Separate Supabase instances.
-- **Secrets**: Environment variables for API keys.
+- **Production**: Full Supabase deployment with real-time data, monitoring, and auto-scaling.
+- **Pre-Production**: Environment for final validation with production-like data.
+- **Secrets**: Secure handling of API keys and sensitive data.
 
 ### Scalability Considerations
 - **Supabase Scaling**: Automatic for database and functions.
