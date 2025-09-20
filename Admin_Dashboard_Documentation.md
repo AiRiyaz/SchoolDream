@@ -20,6 +20,52 @@ The Admin Dashboard serves as the central command center for school administrato
 - **Alert System**: Integrates with Communication Hub for broadcasting alerts.
 - **Analytics Engine**: Feeds into Reports & Analytics module for deeper insights.
 
+## Features
+
+### Detailed Breakdown of Functionalities
+
+1. **KPIs and Key Metrics Display**
+   - **Description**: Visual dashboard widgets showing essential performance indicators with real-time data and trend analysis.
+   - **Sub-features**: Customizable KPI cards with charts, gauges, and sparklines, real-time data updates via Supabase subscriptions, trend indicators with percentage changes, drill-down capabilities to detailed reports.
+   - **Use Cases**: Monitoring student enrollment numbers, tracking teacher performance metrics, viewing financial KPIs like payment collections.
+   - **Workflow**: Dashboard loads → Fetches KPI data → Renders widgets → Updates in real-time → User clicks for details.
+   - **Integration**: Pulls data from all modules via Supabase queries, integrates with Reports & Analytics for detailed breakdowns.
+
+2. **Real-time Alerts and Notifications**
+   - **Description**: System-wide alert system for critical events, maintenance issues, and important updates with priority-based delivery.
+   - **Sub-features**: Configurable alert thresholds, multi-channel notifications (in-app, email, SMS), alert prioritization with color coding, alert history and resolution tracking, automated alert generation based on data anomalies.
+   - **Use Cases**: Notifying admins of system downtime, alerting to low enrollment in classes, warning about upcoming deadlines.
+   - **Workflow**: System monitors data → Triggers alert when threshold met → Displays in dashboard → Sends notifications → Admin acknowledges and resolves.
+   - **Integration**: Connects with Communication Hub for broadcasting, integrates with activity tracking for anomaly detection.
+
+3. **Quick Access Shortcuts**
+   - **Description**: One-click navigation buttons and shortcuts to frequently used administrative functions and modules.
+   - **Sub-features**: Customizable shortcut bar with drag-and-drop ordering, frequently used module access, quick action buttons for common tasks, keyboard shortcuts support, shortcut analytics for usage tracking.
+   - **Use Cases**: Rapid access to User Management for urgent account issues, quick navigation to Academic Management for schedule changes.
+   - **Workflow**: Admin identifies frequent tasks → Adds to shortcuts → Clicks shortcut → Navigates directly to function.
+   - **Integration**: Links to all admin modules, integrates with user preferences for personalization.
+
+4. **System-wide Metrics Overview**
+   - **Description**: Comprehensive view of institutional performance across all areas with aggregated data and comparative analysis.
+   - **Sub-features**: Cross-module metric aggregation, comparative period analysis, metric categorization by department, export capabilities for presentations, predictive trend lines.
+   - **Use Cases**: Annual performance reviews, board meetings with data presentation, identifying areas needing improvement.
+   - **Workflow**: System aggregates data from modules → Calculates metrics → Displays in overview widgets → User exports or drills down.
+   - **Integration**: Sources data from all platform modules, feeds into Reports & Analytics for advanced analysis.
+
+5. **Upcoming Events Calendar**
+   - **Description**: Interactive calendar displaying scheduled events, holidays, exams, and important dates with detailed event information.
+   - **Sub-features**: Multiple view modes (month, week, day), event creation and editing, color-coded event categories, recurring event support, calendar sharing with staff, integration with class schedules.
+   - **Use Cases**: Planning academic calendar for new year, coordinating exam schedules, managing holiday closures.
+   - **Workflow**: Admin views calendar → Adds/edits events → Sets recurrence → Shares with relevant groups → System sends reminders.
+   - **Integration**: Syncs with Academic Management for class schedules, integrates with Communication Hub for event notifications.
+
+6. **Resource Utilization Statistics**
+   - **Description**: Detailed statistics on resource usage including facilities, equipment, staff workload, and system performance.
+   - **Sub-features**: Real-time utilization tracking, capacity vs usage comparisons, historical trend analysis, resource allocation recommendations, utilization alerts for optimization.
+   - **Use Cases**: Optimizing classroom usage, managing equipment maintenance schedules, balancing staff workloads, planning infrastructure upgrades.
+   - **Workflow**: System monitors resource usage → Calculates statistics → Displays in charts → Generates recommendations → Admin takes action.
+   - **Integration**: Connects with Infrastructure Management for facility data, integrates with Academic Management for scheduling data.
+
 ## Requirements
 
 ### Functional Requirements
