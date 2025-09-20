@@ -226,6 +226,112 @@ The User Management component is a core administrative module in the SchoolDream
 ### Migrations
 - Initial schema creation; add columns for future features (e.g., profile_picture).
 
+## Data Models
+
+### User Model
+```typescript
+interface User {
+  id: string;
+  email: string;
+  fullName: string;
+  role: 'admin' | 'teacher' | 'parent' | 'student';
+  department?: string;
+  status: 'active' | 'inactive' | 'suspended';
+  profilePicture?: string;
+  lastLogin?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface UserProfile {
+  id: string;
+  userId: string;
+  firstName: string;
+  lastName: string;
+  dateOfBirth?: string;
+  phone?: string;
+  address?: Address;
+  emergencyContact?: EmergencyContact;
+  preferences: UserPreferences;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface Address {
+  street: string;
+  city: string;
+  state: string;
+  postalCode: string;
+  country: string;
+}
+
+interface EmergencyContact {
+  name: string;
+  relationship: string;
+  phone: string;
+  email?: string;
+}
+
+interface UserPreferences {
+  theme: 'light' | 'dark';
+  language: string;
+  notifications: NotificationSettings;
+}
+
+interface NotificationSettings {
+  email: boolean;
+  sms: boolean;
+  push: boolean;
+}
+```
+
+### Activity Model
+```typescript
+interface UserActivity {
+  id: string;
+  userId: string;
+  action: string;
+  details: Record<string, any>;
+  ipAddress: string;
+  userAgent: string;
+  timestamp: string;
+}
+
+interface ActivitySummary {
+  userId: string;
+  period: string;
+  totalActions: number;
+  lastActivity: string;
+  riskScore: number;
+}
+```
+
+### Bulk Operation Model
+```typescript
+interface BulkOperation {
+  id: string;
+  operationType: 'import' | 'export' | 'update';
+  status: 'pending' | 'processing' | 'completed' | 'failed';
+  totalRecords: number;
+  processedRecords: number;
+  failedRecords: number;
+  fileUrl?: string;
+  errorDetails?: string[];
+  createdBy: string;
+  createdAt: string;
+  completedAt?: string;
+}
+
+interface ImportRecord {
+  id: string;
+  bulkOperationId: string;
+  data: Record<string, any>;
+  status: 'pending' | 'success' | 'failed';
+  errorMessage?: string;
+  processedAt?: string;
+}
+```
+
 ## UI/UX Design
 
 ### Wireframes

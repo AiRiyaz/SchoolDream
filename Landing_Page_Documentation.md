@@ -284,6 +284,105 @@ export const signUpUser = async (email: string, password: string, role: string) 
 - **Insert Profile**: `INSERT INTO profiles (id, role) VALUES ($1, $2)`.
 - **Fetch User**: `SELECT * FROM profiles WHERE id = $1`.
 
+## Data Models
+
+### Testimonial Model
+```typescript
+interface Testimonial {
+  id: string;
+  authorName: string;
+  authorRole: 'teacher' | 'parent' | 'admin' | 'student';
+  schoolName?: string;
+  content: string;
+  rating: number; // 1-5 stars
+  imageUrl?: string;
+  featured: boolean;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface TestimonialCategory {
+  id: string;
+  name: string;
+  testimonials: string[]; // Array of testimonial IDs
+}
+```
+
+### Pricing Plan Model
+```typescript
+interface PricingPlan {
+  id: string;
+  name: string;
+  tier: 'essential' | 'professional' | 'enterprise';
+  price: number;
+  currency: string;
+  billingCycle: 'monthly' | 'yearly';
+  features: string[];
+  popular: boolean;
+  maxUsers?: number;
+  storageLimit?: number;
+  supportLevel: 'basic' | 'premium' | 'dedicated';
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface FeatureComparison {
+  feature: string;
+  essential: boolean;
+  professional: boolean;
+  enterprise: boolean;
+}
+```
+
+### Contact Inquiry Model
+```typescript
+interface ContactInquiry {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  subject: string;
+  message: string;
+  inquiryType: 'general' | 'support' | 'sales' | 'partnership';
+  status: 'new' | 'in-progress' | 'resolved' | 'closed';
+  priority: 'low' | 'medium' | 'high';
+  assignedTo?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface NewsletterSubscription {
+  id: string;
+  email: string;
+  subscribedAt: string;
+  unsubscribedAt?: string;
+  source: string; // e.g., 'landing_page', 'footer'
+  preferences: string[]; // Array of interest categories
+}
+```
+
+### Analytics Model
+```typescript
+interface PageView {
+  id: string;
+  page: string;
+  userId?: string;
+  sessionId: string;
+  timestamp: string;
+  userAgent: string;
+  referrer?: string;
+  duration?: number;
+}
+
+interface ConversionEvent {
+  id: string;
+  eventType: 'registration' | 'login' | 'contact_form' | 'newsletter_signup';
+  userId?: string;
+  metadata: Record<string, any>;
+  timestamp: string;
+}
+```
+
 ## API Design
 
 ### Endpoints

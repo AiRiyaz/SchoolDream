@@ -328,6 +328,104 @@ export const calculateKPIs = async () => {
 - **Fetch KPIs**: `SELECT * FROM kpi_metrics ORDER BY updated_at DESC`.
 - **Active Alerts**: `SELECT * FROM alerts WHERE resolved = FALSE ORDER BY priority DESC, created_at DESC`.
 
+## Data Models
+
+### KPI Model
+```typescript
+interface KPIMetric {
+  id: string;
+  metric: string;
+  label: string;
+  value: number;
+  trend: number;
+  unit: string;
+  updatedAt: string;
+}
+
+interface DashboardWidget {
+  id: string;
+  type: 'kpi' | 'chart' | 'alert' | 'calendar' | 'shortcut';
+  position: { x: number; y: number; width: number; height: number };
+  config: Record<string, any>;
+  userId: string;
+}
+```
+
+### Alert Model
+```typescript
+interface Alert {
+  id: string;
+  message: string;
+  priority: 'high' | 'medium' | 'low';
+  type: 'system' | 'academic' | 'security' | 'maintenance';
+  resolved: boolean;
+  resolvedAt?: string;
+  resolvedBy?: string;
+  createdAt: string;
+  affectedUsers?: string[];
+}
+
+interface AlertRule {
+  id: string;
+  name: string;
+  condition: string;
+  threshold: number;
+  priority: 'high' | 'medium' | 'low';
+  enabled: boolean;
+  createdAt: string;
+}
+```
+
+### Event Model
+```typescript
+interface CalendarEvent {
+  id: string;
+  title: string;
+  description: string;
+  startDate: string;
+  endDate: string;
+  eventType: 'holiday' | 'exam' | 'event' | 'meeting';
+  affectedGroups: string[];
+  isAllDay: boolean;
+  location: string;
+  createdBy: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+interface EventRecurrence {
+  id: string;
+  eventId: string;
+  frequency: 'daily' | 'weekly' | 'monthly' | 'yearly';
+  interval: number;
+  endDate?: string;
+  exceptions: string[];
+}
+```
+
+### Shortcut Model
+```typescript
+interface DashboardShortcut {
+  id: string;
+  userId: string;
+  label: string;
+  icon: string;
+  target: string;
+  order: number;
+  createdAt: string;
+}
+
+interface UserDashboardConfig {
+  id: string;
+  userId: string;
+  layout: string;
+  theme: 'light' | 'dark';
+  widgets: DashboardWidget[];
+  shortcuts: DashboardShortcut[];
+  updatedAt: string;
+}
+```
+
 ## API Design
 
 ### Endpoints
