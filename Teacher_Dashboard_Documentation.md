@@ -712,10 +712,9 @@ interface ActionConfig {
 - **Triggers**: Push to main branch, pull request creation.
 
 ### Environment Configurations
-- **Development**: Local Supabase instance with mock data, hot reloading enabled.
-- **Staging**: Full Supabase deployment with production-like data, automated testing.
-- **Production**: Optimized Supabase deployment with real-time data, monitoring, and auto-scaling.
-- **Secrets Management**: Secure handling of API keys, database URLs, and sensitive configuration.
+- **Production**: Full Supabase deployment with real-time data, monitoring, and auto-scaling.
+- **Pre-Production**: Environment for final validation with production-like data.
+- **Secrets Management**: Secure handling of API keys and sensitive data.
 
 ### Scalability Considerations
 - **Supabase Scaling**: Automatic database scaling based on load.
