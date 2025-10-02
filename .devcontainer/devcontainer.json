@@ -11,6 +11,13 @@
 		"ghcr.io/devcontainers-community/npm-features/typescript:1": {},
 		"ghcr.io/devcontainers-extra/features/npm-package:1": {},
 		"ghcr.io/devcontainers-extra/features/typescript:2": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"kilocode.kilo-code"
+			]
+		}
 	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
